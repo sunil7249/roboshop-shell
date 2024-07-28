@@ -57,13 +57,13 @@ curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zi
 
 VALIDATE $? "Downloading catalogue application"
 
-cd /app 
+cd /app && $LOGFILE
 
 unzip /tmp/catalogue.zip
 
 VALIDATE $? "unzipping catalogue "
 
-npm install 
+npm install && $LOGFILE
 
 VALIDATE $? "installing dependencies" 
 
@@ -83,14 +83,14 @@ systemctl start catalogue && $LOGFILE
 
 VALIDATE $? "starting catalogue"
 
-cp /home/centos/roboshop-shell/mongo.repo  /etc/yum.repos.d/mongo.repo
+cp /home/centos/roboshop-shell/mongo.repo  /etc/yum.repos.d/mongo.repo && $LOGFILE
 
 VALIDATE $? "coping momgodb repo"
 
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y && $LOGFILE
 
 VALIDATE $? "installing mongoDB client"
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js
+mongo --host $MONGODB_HOST </app/schema/catalogue.js && $LOGFILE
 
 VALIDATE $? "Loading catalogue data into MongoDB"
