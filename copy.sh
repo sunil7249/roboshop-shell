@@ -1,3 +1,9 @@
+dnf module disable nodejs -y && $LOGFILE
+
+VALIDATE $? "disabling current nodejs"
+
+
+
 dnf module enable nodejs:18 -y && $LOGFILE
 
 VALIDATE $? "Enabling Nodejs:18"

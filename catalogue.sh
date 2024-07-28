@@ -33,7 +33,5 @@ else
      echo  "you are root user"
 fi
 
-dnf module disable nodejs -y && $LOGFILE
 
-VALIDATE $? "disabling current nodejs"
 
