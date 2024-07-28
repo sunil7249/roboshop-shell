@@ -32,7 +32,7 @@ else
      echo  "you are root user"
 fi
 
-cp mongo.repo vim /etc/yum.repos.d/ &>> $LOGFILE
+cp mongo.repo  /etc/yum.repos.d/ &>> $LOGFILE
  
 VALIDATE $? "copied Mongodb Repo"
 
